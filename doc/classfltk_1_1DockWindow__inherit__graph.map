@@ -1,0 +1,8 @@
+base referer
+rect $classfltk_1_1GripperBar.html 5,380 117,404
+rect $classfltk_1_1ToolWindow.html 141,380 259,404
+rect $classfltk_1_1DockBase.html 77,231 184,255
+rect $classfltk_1_1Group.html 89,156 172,180
+rect $classfltk_1_1Widget.html 87,81 175,105
+rect $classfltk_1_1Rectangle.html 77,7 184,31
+rect $classfltk_1_1ToolBar.html 16,455 107,479

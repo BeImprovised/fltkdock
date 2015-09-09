@@ -1,0 +1,119 @@
+#
+# $Id: Makefile.in,v 1.2 2006/06/24 19:58:01 z_hossain Exp $
+#
+# A dockable window framework for Fast Light Tool Kit (FLTK).
+#
+# Copyright (C) 2006 by MD. Z. Hossain
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Library General Public
+# License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Library General Public License for more details.
+#
+# You should have received a copy of the GNU Library General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+# USA.
+#
+# Please report all bugs and problems to: 
+#
+#             z_hossain@users.sf.net
+
+
+CXX = @CXX@
+LIBTARGET = libfltkdock.a
+
+DSOTARGET = libfltkdock@DSOSUFFIX@
+DSOLINK = libfltkdock@DSOSYMLINK@
+DSOCOMMAND = @DSOCOMMAND@
+
+INCLUDES = -I.. -I../fltk/fltkdock
+OPTIONS = -Wall @DEBUGFLAG@
+CXXFLAGS = $(OPTIONS) $(INCLUDES) @FCXXFLAGS@
+LDFLAGS	= @FLDFLAGS@
+RANLIB = @RANLIB@
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+bindir = @bindir@
+includedir = @includedir@
+libdir = @libdir@
+
+AR = ar cruvs
+CHMOD = chmod
+MKDIR = mkdir -p
+CP = cp
+LN = ln -s
+RM = rm -f
+RMDIR = rm -rf
+
+
+CXXFILES = DockBase.cxx DockStatus.cxx Preview.cxx DockHolder.cxx Resizer.cxx SubBlock.cxx PlainHolder.cxx WindowHolder.cxx BarHolder.cxx RegionHolder.cxx ThinWindow.cxx DockWindow.cxx ToolWindow.cxx GripperBar.cxx ToolBar.cxx
+OBJECTS = $(CXXFILES:.cxx=.o)
+HEADERS = DockFlags.h DockWindow.h ToolWindow.h GripperBar.h ToolBar.h DockHolder.h BarHolder.h WindowHolder.h RegionHolder.h ToolDivider.h
+
+
+all : $(LIBTARGET) $(DSOTARGET)
+
+.SUFFIXES:	.cxx .h .o
+
+
+.cxx.o :
+	@echo compiling $<...
+	$(CXX) $(CXXFLAGS) -c $< -o $(<:.cxx=.o)
+
+$(LIBTARGET): $(OBJECTS)
+	@echo building static library $@...
+	$(AR) ../lib/$@ $(OBJECTS)
+	$(RANLIB) ../lib/$@
+
+$(DSOTARGET): $(OBJECTS)
+ifneq ($(DSOCOMMAND),echo)
+	@echo building shared library $@...
+	$(DSOCOMMAND) ../lib/$@ $(OBJECTS)
+	$(LN) ../lib/$(DSOTARGET) ../lib/$(DSOLINK)
+endif
+
+install:
+ifneq (,$(wildcard ../lib/$(LIBTARGET)))
+	@echo installing $(libdir)/$(LIBTARGET)...
+	$(CP) ../lib/$(LIBTARGET) $(libdir)/$(LIBTARGET)
+endif
+
+ifneq (,$(wildcard ../lib/$(DSOTARGET)))
+	@echo installing $(libdir)/$(DSOTARGET)...
+	$(CP) ../lib/$(DSOTARGET) $(libdir)/$(DSOTARGET)
+	$(LN) $(DSOTARGET) $(libdir)/$(DSOLINK)
+endif
+
+	@echo "installing include files in $(includedir)/fltk..."
+	$(MKDIR) $(includedir)/fltk/fltkdock
+	$(CP) ../fltk/fltkdock/*.h  $(includedir)/fltk/fltkdock
+	for ii in $(HEADERS) ; do \
+	$(CP) ../fltk/$$ii $(includedir)/fltk/$$ii;\
+	done
+
+uninstall:
+	@echo uninstalling $(libdir)/$(LIBTARGET)...
+	$(RM) $(libdir)/$(LIBTARGET)
+	
+	@echo uninstalling $(libdir)/$(DSOTARGET)...
+	$(RM) $(libdir)/$(DSOTARGET)
+	$(RM) $(libdir)/$(DSOLINK)
+
+	@echo "uninstalling include files..."
+	$(RMDIR) $(includedir)/fltk/fltkdock
+	for ii in $(HEADERS) ; do \
+	$(RM) $(includedir)/fltk/$$ii;\
+	done
+
+clean:
+	-$(RM) $(OBJECTS)
+	$(RM) ../lib/$(LIBTARGET)
+	$(RM) ../lib/$(DSOTARGET)
+	$(RM) ../lib/$(DSOLINK)

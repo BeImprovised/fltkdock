@@ -1,0 +1,8 @@
+CHANGES IN FLTK Dock 0.07
+-------------------------
+
+	- improve source (header files) tree
+	- improve title text drawing clip
+	- add global option "fill vertical" (see documentation)
+	- add fluid example
+	- and etc.

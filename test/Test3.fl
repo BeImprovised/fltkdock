@@ -1,0 +1,115 @@
+# data file for the FLTK User Interface Designer (FLUID)
+version 2.0100 
+header_name {.h} 
+code_name {.cxx} 
+gridx 5 
+gridy 5 
+snap 1
+comment {This example is completely written using fluid2.} {in_source not_in_header
+} 
+
+decl {\#include <stdlib.h>} {} 
+
+Function {} {open
+} {
+  code {/*
+Leave alignment value in constructor is not recommended (see documentation).
+Edit the code to pass alignment value in constructor.
+*/
+fltk::Global::save_status(false);} {}
+  {fltk::Window} {} {
+    callback {exit(0);} open
+    xywh {369 149 650 475} resizable visible
+  } {
+    {fltk::Group} region {open
+      xywh {0 0 650 475}
+      class {fltk::RegionHolder}
+    } {
+      {fltk::Group} {} {open
+        xywh {0 0 650 80}
+        class {fltk::BarHolder}
+      } {
+        {fltk::Group} {} {open
+          xywh {0 0 175 40}
+          class {fltk::ToolBar}
+        } {
+          {fltk::Button} {} {
+            label one
+            xywh {0 0 40 40}
+            class {fltk::HighlightButton}
+          }
+          {fltk::Button} {} {
+            label two
+            xywh {40 0 40 40}
+            class {fltk::HighlightButton}
+          }
+          {fltk::Button} {} {
+            label three
+            xywh {80 0 40 40}
+            class {fltk::HighlightButton}
+          }
+          {fltk::Divider} {} {
+            
+            class {fltk::ToolDivider}
+          }
+          {fltk::Button} {} {
+            label four
+            xywh {135 0 40 40}
+            class {fltk::HighlightButton}
+          }
+        }
+        {fltk::Group} {} {selected
+          xywh {225 40 235 40}
+          extra_code {o->child_info(fltk::ToolBar::FIXED_HEIGHT 
+     | fltk::ToolBar::FIXED_WIDTH, 5, 10, inb);
+o->min_sizes(10, 40, 100, 10);}
+          class {fltk::ToolBar}
+        } {
+          {fltk::Button} {} {
+            label Cut
+            xywh {0 0 40 40}
+            class {fltk::HighlightButton}
+          }
+          {fltk::Button} {} {
+            label Copy
+            xywh {40 0 40 40}
+            class {fltk::HighlightButton}
+          }
+          {fltk::Button} {} {
+            label Paste
+            xywh {80 0 40 40}
+            class {fltk::HighlightButton}
+          }
+          {fltk::Divider} {} {
+            
+            class {fltk::ToolDivider}
+          }
+          {fltk::InputBrowser} inb {open
+            xywh {140 10 90 22}
+          } {}
+        }
+      }
+      {fltk::Group} {} {open
+        xywh {0 80 15 380}
+        class {fltk::BarHolder}
+      } {}
+      {fltk::Group} {} {open
+        xywh {635 80 15 380}
+        class {fltk::BarHolder}
+      } {}
+      {fltk::Group} {} {open
+        xywh {0 460 650 15}
+        class {fltk::BarHolder}
+      } {}
+      {fltk::Group} {} {
+        xywh {15 80 620 380}
+        class {fltk::DockHolder}
+      } {
+        {fltk::TextEditor} {} {
+          xywh {0 0 620 380}
+        }
+      }
+    }
+  }
+  code {region->initiate();} {}
+} 

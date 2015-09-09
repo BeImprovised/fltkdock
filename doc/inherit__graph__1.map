@@ -1,0 +1,17 @@
+base referer
+rect $classfltk_1_1Rectangle.html 6,78 112,102
+rect $classfltk_1_1Widget.html 160,78 248,102
+rect $classfltk_1_1Divider.html 296,54 384,78
+rect $classfltk_1_1Group.html 299,102 382,126
+rect $classfltk_1_1ToolDivider.html 434,54 546,78
+rect $classfltk_1_1DockBase.html 436,102 543,126
+rect $classfltk_1_1Window.html 443,150 536,174
+rect $classfltk_1_1DockHolder.html 600,78 715,102
+rect $classfltk_1_1DockWindow.html 596,126 719,150
+rect $classfltk_1_1PlainHolder.html 775,30 890,54
+rect $classfltk_1_1RegionHolder.html 768,78 896,102
+rect $classfltk_1_1BarHolder.html 958,6 1064,30
+rect $classfltk_1_1WindowHolder.html 944,54 1078,78
+rect $classfltk_1_1GripperBar.html 776,126 888,150
+rect $classfltk_1_1ToolWindow.html 774,174 891,198
+rect $classfltk_1_1ToolBar.html 966,126 1056,150

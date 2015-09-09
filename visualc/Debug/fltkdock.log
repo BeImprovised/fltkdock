@@ -1,0 +1,19 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (fltkdock_vc14.vcxproj, test1.vcxproj, test2.vcxproj, test3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  WindowHolder.cxx
+  ToolWindow.cxx
+  ToolBar.cxx
+  ThinWindow.cxx
+  SubBlock.cxx
+  Resizer.cxx
+  RegionHolder.cxx
+  Preview.cxx
+  PlainHolder.cxx
+  GripperBar.cxx
+  DockWindow.cxx
+  DockStatus.cxx
+  DockHolder.cxx
+  DockBase.cxx
+  BarHolder.cxx
+  Generating Code...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1357,5): warning MSB8012: TargetPath(D:\working\fltk\fltk_dock\visualc\Debug\fltkdockd.lib) does not match the Library's OutputFile property value (D:\working\fltk\fltk_dock\lib\fltkdockd.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+  fltkdock.vcxproj -> D:\working\fltk\fltk_dock\visualc\Debug\fltkdockd.lib

@@ -1,0 +1,19 @@
+This folder contains project files for Microsoft Visual C++.
+
+To compile and run FLTK Dock with Microsoft Visual C++, you 
+need to compile FLTK with RTTI (Run-Time Type Information) 
+support for both Debug and Release build (avoid building 
+"Release MinSize" although possible by ignoring "libcmt"). 
+(FLTK Dock is configured to compile with RTTI.)
+
+(An Easy way is to put both "fltkdock*" and "fltk*" directories 
+in same level and rename "fltk-2.0*" to "fltk-2.0").
+
+
+FOR BEGINNER
+
+Select Enable Run-Time Type Information from C/C++ tab and 
+category C++ Language of Project Settings Dialog. Ensure 
+this for all configurations (at least for debug and release) 
+and required project (or select all projects). Otherwise 
+run-time error will occur though compilation is successful.

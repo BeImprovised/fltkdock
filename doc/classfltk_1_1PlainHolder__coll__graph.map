@@ -1,0 +1,7 @@
+base referer
+rect $classfltk_1_1DockHolder.html 49,211 164,235
+rect $classfltk_1_1DockWindow.html 165,301 288,325
+rect $classfltk_1_1DockBase.html 53,120 160,144
+rect $classfltk_1_1Group.html 109,16 192,40
+rect $classfltk_1_1Widget.html 192,120 280,144
+rect $classfltk_1_1Rectangle.html 305,16 412,40

@@ -1,0 +1,77 @@
+#
+# $Id: Makefile.in,v 1.2 2006/06/19 16:34:40 z_hossain Exp $
+#
+# A dockable window framework for Fast Light Tool Kit (FLTK).
+#
+# Copyright (C) 2006 by MD. Z. Hossain
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Library General Public
+# License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Library General Public License for more details.
+#
+# You should have received a copy of the GNU Library General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+# USA.
+#
+# Please report all bugs and problems to: 
+#
+#             z_hossain@users.sf.net
+
+
+CXX = @CXX@
+
+INCLUDES = -I.. -I../fltk/fltkdock
+OPTIONS = -Wall @DEBUGFLAG@
+CXXFLAGS = $(INCLUDES) $(OPTIONS) @FCXXFLAGS@
+LDFLAGS	= -L../lib -lfltkdock @FLDFLAGS@
+
+TEST1 = test1
+OBJECTS1 = Test1.o
+
+TEST2 = test2
+OBJECTS2 = Test2.o
+
+TEST3 = test3
+OBJECTS3 = Test3.o
+
+RM = rm -f
+
+all : $(TEST1) $(TEST2) $(TEST3)
+
+.SUFFIXES:	.fl .cxx .h .o
+
+.fl.cxx .fl.h:
+	@echo generating code $<...
+	fluid2 -c $<
+
+.cxx.o :
+	@echo compiling $<...
+	$(CXX) $(CXXFLAGS) -c $< -o $(<:.cxx=.o)
+
+$(TEST1) : $(OBJECTS1)
+	@echo linking $<...
+	$(CXX) -o $@ $(OBJECTS1) $(LIBFILE) $(LDFLAGS)
+
+$(TEST2) : $(OBJECTS2)
+	@echo linking $<...
+	$(CXX) -o $@ $(OBJECTS2) $(LIBFILE) $(LDFLAGS)
+
+$(TEST3) : $(OBJECTS3)
+	@echo linking $<...
+	$(CXX) -o $@ $(OBJECTS3) $(LIBFILE) $(LDFLAGS)
+
+install:
+	@echo nothing to install.
+
+uninstall:
+	@echo nothing to uninstall.
+
+clean:
+	$(RM) $(OBJECTS1) $(OBJECTS2) $(OBJECTS3) $(TEST1) $(TEST2) $(TEST3)

@@ -1,0 +1,11 @@
+This folder contain project files for Bloodshed Dev-C++
+
+Make sure that you have a latest version of FLTK-2.
+Adjust projects path according to your FLTK-2 directory.
+(An Easy way is to put both "fltkdock*" and "fltk*" 
+directories in same level and rename "fltk-2.0*" to 
+"fltk-2.0"). You need to compile projects in following 
+sequence:
+
+ 1. fltkdock.dev
+ 2. test1.dev, test2.dev, test3.dev

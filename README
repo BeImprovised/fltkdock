@@ -1,0 +1,71 @@
+README - FLTK Dock Version 0.07
+-------------------------------
+
+
+WHAT IS FLTK Dock?
+
+     FLTK Dock is a dockable window framework for Fast Light Tool Kit
+     (FLTK). FLTK Dock (pronounced "fulltick dock") provides advance,
+     customizable toolbar and window with docking, floating and other
+     functionalities of latest dockable-floatable windows for general
+     desktop application.
+
+
+     For more information visit http://fltkdock.sourceforge.net and
+     FLTK Home http://www.fltk.org
+
+
+BUILD INSTRUCTIONS
+
+     Make sure that the FLTK library version 2 is installed on your 
+     system. Otherwise you can get it from http://www.fltk.org
+
+     ./configure
+     make
+     make install
+
+     Options that you can pass to ./configure include:
+
+         --enable-debug          - Enable debugging code & symbols
+         --enable-shared         - Enable generation of shared libraries
+
+
+     To install the library, become root and type "make install".
+     The header files to "includedir"/fltk, and the library files 
+     to "libdir".
+
+
+REPORTING BUGS
+
+     To report a bug in FLTK Dock, send an email to "z_hossain@users.sf.net",
+     or use bug tracking system at sourceforge. Please include the FLTK 
+     version, FLTK Dock version, operating system & version, and compiler
+     name that you are using.
+
+
+COPYRIGHT
+
+     FLTK Dock is copyright (C) 2006 by MD. Z. Hossain
+
+     This library is free software; you can redistribute it and/or
+     modify it under the terms of the GNU Library General Public License
+     as published by the Free Software Foundation; either version 2 of
+     the License, or (at your option) any later version.
+
+     This library is distributed in the hope that it will be useful, but
+     WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+     Library General Public License for more details.
+
+     You should have received a copy of the GNU Library General Public
+     License along with this library; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+     USA.
+
+
+TRADEMARKS
+
+     Microsoft and Windows are registered trademarks of Microsoft
+     Corporation. UNIX is a registered trademark of the X/Open Group,
+     Inc.  OpenGL is a registered trademark of Silicon Graphics, Inc.
+     MacOS is a registered trademark of Apple Computers, Inc.
